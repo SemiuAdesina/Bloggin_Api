@@ -409,3 +409,96 @@ form button:hover {
     background-color: #388e3c; 
   }
   
+
+  
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 0.9em;
+  }
+
+  .form-container,
+  .blog-detail,
+  form {
+    max-width: 90%;
+    padding: 15px;
+    margin: 10px auto;
+  }
+
+  .blog-item {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .btn, .btn-save, .btn-cancel, .btn-publish {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .blog-title {
+    font-size: 1.2rem;
+  }
+
+  .blog-description, .blog-timestamp, .blog-state {
+    font-size: 0.8rem;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  body {
+    font-size: 1em;
+  }
+
+  .form-container,
+  .blog-detail,
+  form {
+    max-width: 80%;
+    padding: 20px;
+  }
+
+  .blog-item {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .btn, .btn-save, .btn-cancel, .btn-publish {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .blog-title {
+    font-size: 1.5rem;
+  }
+
+  .blog-description, .blog-timestamp, .blog-state {
+    font-size: 0.9rem;
+  }
+}
+
+
+@media only screen and (min-width: 901px) {
+  .form-container,
+  .blog-detail,
+  form {
+    max-width: 600px;
+    padding: 25px;
+  }
+
+  .blog-item {
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+
+  .btn, .btn-save, .btn-cancel, .btn-publish {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+
+  .blog-title {
+    font-size: 1.8rem;
+  }
+
+  .blog-description, .blog-timestamp, .blog-state {
+    font-size: 1rem;
+  }
+}

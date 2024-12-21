@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # Bloggin_Api
-=======
 # Blogging API
 
 <!-- Brief description of your project -->
@@ -38,4 +36,3 @@ The Blogging API is a comprehensive backend application that allows users to cre
 ### Prerequisites
 - Node.js (v14+)
 - MongoDB (local or MongoDB Atlas)
->>>>>>> Initial commit for Blog API
