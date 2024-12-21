@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= blog.title %></title>
+  <link rel="stylesheet" href="/css/blogs.css">
+</head>
+<body>
+  <article class="blog-detail">
+    <header>
+      <h1><%= blog.title %></h1>
+      <p><%= blog.description %></p>
+    </header>
+    <section>
+      <p class="blog-body"><%= blog.body %></p>
+    </section>
+    <footer class="blog-meta">
+      <p>Author: <%= blog.author.first_name %> <%= blog.author.last_name %></p>
+      <p>Reading Time: <%= blog.reading_time %></p>
+      <p>Read Count: <%= blog.read_count %></p>
+      <p>Published At: <%= blog.timestamp.toDateString() %></p>
+    </footer>
+  </article>
+
+  <!-- Action Buttons: Edit and Delete -->
+  <% if (user && blog.author._id.toString() === user._id.toString()) { %>
+    <div class="blog-actions">
+      <!-- Edit Button -->
+      <form action="/api/blogs/<%= blog._id %>/edit" method="GET">
+        <button type="submit" class="edit-button">Edit</button>
+      </form>
+
+      <!-- Delete Button -->
+      <form action="/api/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="delete-button">Delete</button>
+      </form>
+    </div>
+  <% } %>
+</body>
+</html>

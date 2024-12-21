@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/blogs.css">
+</head>
+<body>
+  <!-- Page Title -->
+  <h1 class="page-title"><%= title %></h1>
+
+  <% if (blogs && blogs.length > 0) { %>
+    <ul class="blog-list">
+      <% blogs.forEach(blog => { %>
+        <li class="blog-item">
+          <!-- Blog Title -->
+          <h2 class="blog-title">
+            <a href="/api/blogs/<%= blog._id %>" class="blog-link"><%= blog.title %></a>
+          </h2>
+          <!-- Blog Description -->
+          <p class="blog-description"><%= blog.description %></p>
+          <!-- Blog Timestamp -->
+          <p class="blog-timestamp">Published: <%= blog.timestamp.toDateString() %></p>
+          <p class="blog-state">State: <%= blog.state %></p>
+
+          <!-- Publish Button (Visible only if blog state is 'draft') -->
+          <% if (blog.state === "draft") { %>
+            <form action="/api/blogs/<%= blog._id %>/state?_method=PUT" method="POST" class="publish-form">
+              <input type="hidden" name="state" value="published">
+              <button type="submit" class="btn-publish">Publish</button>
+            </form>
+          <% } %>
+
+          <!-- Edit Link -->
+          <a href="/api/blogs/<%= blog._id %>/edit" class="btn-edit">Edit</a>
+          
+          <!-- Delete Button -->
+          <form action="/api/blogs/<%= blog._id %>?_method=DELETE" method="POST" class="delete-form">
+            <button type="submit" class="btn-delete">Delete</button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p class="no-blogs">You have no blogs yet. <a href="/api/blogs/create" class="create-link">Create one now!</a></p>
+  <% } %>
+</body>
+</html>

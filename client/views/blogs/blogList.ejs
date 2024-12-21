@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Published Blogs</title>
+  <link rel="stylesheet" href="/css/blogs.css">
+</head>
+<body>
+  <header>
+    <h1>Published Blogs</h1>
+  </header>
+  <main>
+    <ul class="blog-list">
+      <% blogs.forEach(blog => { %>
+        <li class="blog-item">
+          <h2><a href="/api/blogs/<%= blog._id %>"><%= blog.title %></a></h2>
+          <p><%= blog.description %></p>
+          <div class="blog-meta">
+            <span>Author: <%= blog.author.first_name %> <%= blog.author.last_name %></span>
+            <span>Reading Time: <%= blog.reading_time %></span>
+            <span>Read Count: <%= blog.read_count %></span>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+
+  <!-- Create Blog Button only visible to authenticated users -->
+  <% if (user) { %>
+    <div class="create-blog-container">
+      <button class="create-blog-button" onclick="location.href='/api/blogs/create'">Create Blog</button>
+      <button class="create-blog-button" onclick="location.href='/api/blogs/my-blogs'">My Blogs</button>
+    </div>
+  <% } %>
+</body>
+</html>
